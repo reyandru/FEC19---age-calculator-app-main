@@ -1,0 +1,124 @@
+*{
+  box-sizing: border-box;
+}
+*,*::before,*::after{
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--color-light-grey);
+}
+
+.container{
+  background-color: var(--color-white);
+  height: 700px;
+  width: 900px;
+  border-radius: 0 0 200px 0;
+  padding: 10px;
+  font-family: "poppins";
+}
+
+.inputDate{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25%;
+  width: 80%;
+  font-size: 14px;
+  color: var(--color-smokey-grey);
+  font-weight: bold;
+}
+
+label{
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+.inputDate input{
+  height: 80px;
+  width: 90%;
+  outline: var(--color-white);
+  padding: 5px;
+  margin-left: 5px;
+  font-size: 24px;
+}
+
+.inputDate input::placeholder{ 
+  font-size: 30px;
+  font-weight: bold;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+.date{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  padding: 10px;
+  margin-left: 10px;
+  width: 210px;
+}
+
+.sbmtBtn{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  height: 5%;
+}
+
+.line{
+  border: 1px solid var(--color-light-grey);
+  height: 2px;
+  width: 85%;
+}
+
+button{
+  background-color: var(--color-purple);
+  border-radius: 50px;
+  height: 100px;
+  width: 100px;
+  border: none;
+  cursor: pointer;
+}
+
+.outputDate{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 10px;
+  height: 65%;
+}
+
+.dates{
+  display: flex;
+  column-gap: 50px;
+  align-items: center;
+  font-size: 100px;
+  font-weight:bold;
+}
+
+.defOutput{
+  color: var(--color-purple);
+}
+
+
+
+:root {
+  --color-purple: hsl(259, 100%, 65%);
+  --color-light-red: hsl(0, 100%, 67%);
+  
+  --color-white: hsl(0, 0%, 100%);
+  --color-off-white: hsl(0, 0%, 94%);
+  --color-light-grey: hsl(0, 0%, 86%);
+  --color-smokey-grey: hsl(0, 1%, 44%);
+  --color-off-black: hsl(0, 0%, 8%);
+}

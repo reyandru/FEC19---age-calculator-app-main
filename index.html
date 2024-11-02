@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <title>Age calculator app</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="inputDate">
+      <div class="date">
+        <label for="dayDate">DAY</label>
+        <input type="number" id="dayDate" placeholder="DD">
+      </div>
+
+      <div class="date">
+        <label for="monthDate">MONTH</label>
+        <input type="number" id="monthDate" placeholder="MM">
+      </div>
+
+      <div class="date">
+        <label for="yearDate">YEAR</label>
+        <input type="number" id="yearDate" placeholder="YYYY">
+      </div>
+    </div>
+    <div class="sbmtBtn">
+      <div class="line"></div>
+      <div class="submit">
+        <button id="submitBtn"><img src="assets/images/icon-arrow.svg" alt=""></button>
+      </div>
+    </div>
+
+    <div class="outputDate">
+      <div class="dates">
+          <em class="defOutput" id="dayOutput">
+            -- 
+          </em>
+          <em>
+            years
+          </em>
+      </div>
+      <div class="dates">
+        <em class="defOutput" id="monthOutput">
+          -- 
+        </em>
+        <em>
+          months
+        </em>
+      </div>
+      <div class="dates">
+        <em class="defOutput" id="yearOutput">
+          -- 
+        </em>
+        <em>
+          days
+        </em>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("submitBtn").addEventListener("click", function() {
+      const day = parseInt(document.getElementById("dayDate").value);
+      const month = parseInt(document.getElementById("monthDate").value) - 1;
+      const year = parseInt(document.getElementById("yearDate").value);
+      
+      if (!day || !month || !year) {
+        alert("Please input your birthday!");
+        return;
+      }
+      
+      const inputDate = new Date(year, month, day);
+      const dateToday = new Date();
+      
+      if (inputDate > dateToday) {
+        alert("Please input a valid date in the past!");
+        return;
+      }
+  
+      let ageInMilliseconds = dateToday - inputDate;
+      let ageDate = new Date(ageInMilliseconds);
+  
+      const years = ageDate.getUTCFullYear() - 1970;
+      const months = ageDate.getUTCMonth();
+      const days = ageDate.getUTCDate() - 1;
+  
+      document.getElementById("dayOutput").innerHTML = years;
+      document.getElementById("monthOutput").innerHTML = months;
+      document.getElementById("yearOutput").innerHTML = days;
+    });
+  </script>
+  
+</body>
+</html>
